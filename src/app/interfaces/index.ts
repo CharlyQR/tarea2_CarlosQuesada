@@ -101,3 +101,12 @@ export interface ICategory {
   nombre?: string;
   descripcion?: string;
 }
+
+export interface IProduct {
+  id?: number;
+  nombre?: string;
+  descripcion?: string;
+  precio?: string;
+  cantidadStock?: string;
+  categoria?: ICategory;
+}

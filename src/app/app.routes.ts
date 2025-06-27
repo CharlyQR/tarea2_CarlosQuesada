@@ -13,6 +13,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { PreferenceListPageComponent } from './pages/preferenceList/preference-list.component';
 import { SportTeamComponent } from './pages/sport-team/sport-team.component';
 import { CategoriaComponent } from './pages/categorias/categoria.component';
+import { ProductosComponent } from './pages/productos/productos.component';
 
 export const routes: Routes = [
   {
@@ -119,6 +120,19 @@ export const routes: Routes = [
             IRoleType.user,
           ],
           name: 'Categorias',
+          showInSidebar: true
+        }
+      },
+            {
+        path: 'productos',
+        component: ProductosComponent,
+            data: { 
+            authorities: [
+            IRoleType.admin, 
+            IRoleType.superAdmin,
+            IRoleType.user,
+          ],
+          name: 'Productos',
           showInSidebar: true
         }
       },
