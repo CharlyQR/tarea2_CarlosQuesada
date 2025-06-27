@@ -1,5 +1,5 @@
 # set nodejs version
-nvm install 20.12.2
+nvm install 22.16.0
 nvm use 20.12.2
 
 # install node modules
