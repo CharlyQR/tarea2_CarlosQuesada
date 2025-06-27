@@ -1,6 +1,9 @@
 <p>Categorias</p>
 
-<app-categoria-form/>
+<app-categoria-form
+    [form]="categoriaForm"
+    (callSaveMethod)="saveCategoria($event)"
+/>
 
 <app-categoria-list
     [categoriaList]="categoriaService.categorias$()"

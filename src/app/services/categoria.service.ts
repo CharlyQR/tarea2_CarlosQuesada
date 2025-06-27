@@ -14,8 +14,8 @@ export class CategoriaService extends BaseService<ICategory> {
   }
 
   public search: ISearch = { 
-    page: 0,
-    size: 0
+    page: 1,
+    size: 5
   }
 
   public totalItems: any = [];
@@ -30,6 +30,19 @@ export class CategoriaService extends BaseService<ICategory> {
         this.categoriaListSignal.set(response.data);
       },
       error: (err: any) => {
+        console.error('error', err);
+      }
+    });
+  }
+
+  save(item: ICategory) {
+    this.add(item).subscribe({
+      next: (response: IResponse<ICategory>) => {
+        this.alertService.displayAlert('success', response.message, 'center', 'top', ['success-snackbar']);
+        this.getAll();
+      },
+      error: (err: any) => {
+        this.alertService.displayAlert('error', 'An error occurred adding the categorie', 'center', 'top', ['error-snackbar']);
         console.error('error', err);
       }
     });
