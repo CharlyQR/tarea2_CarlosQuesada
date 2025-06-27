@@ -10,8 +10,6 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { GuestGuard } from './guards/guest.guard';
 import { IRoleType } from './interfaces';
 import { ProfileComponent } from './pages/profile/profile.component';
-import { GamesComponent } from './pages/games/games.component';
-import { OrdersComponent } from './pages/orders/orders.component';
 import { PreferenceListPageComponent } from './pages/preferenceList/preference-list.component';
 import { SportTeamComponent } from './pages/sport-team/sport-team.component';
 import { CategoriaComponent } from './pages/categorias/categoria.component';
@@ -86,32 +84,6 @@ export const routes: Routes = [
         }
       },
       {
-        path: 'games',
-        component: GamesComponent,
-        data: { 
-          authorities: [
-            IRoleType.admin, 
-            IRoleType.superAdmin,
-            IRoleType.user,
-          ],
-          name: 'games',
-          showInSidebar: true
-        }
-      },
-      {
-        path: 'orders',
-        component: OrdersComponent,
-        data: { 
-          authorities: [
-            IRoleType.admin, 
-            IRoleType.superAdmin,
-            IRoleType.user,
-          ],
-          name: 'orders',
-          showInSidebar: true
-        }
-      },
-      {
         path: 'preference-list',
         component: PreferenceListPageComponent,
         data: { 
@@ -140,8 +112,8 @@ export const routes: Routes = [
       {
         path: 'categorias',
         component: CategoriaComponent,
-                data: { 
-          authorities: [
+            data: { 
+            authorities: [
             IRoleType.admin, 
             IRoleType.superAdmin,
             IRoleType.user,

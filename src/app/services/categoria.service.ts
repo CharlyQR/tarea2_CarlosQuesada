@@ -48,7 +48,7 @@ export class CategoriaService extends BaseService<ICategory> {
     });
   }
 
-    update(item: ICategory) {
+  update(item: ICategory) {
     this.edit(item.id, item).subscribe({
       next: (response: IResponse<ICategory>) => {
         this.alertService.displayAlert('success', response.message, 'center', 'top', ['success-snackbar']);
@@ -56,6 +56,19 @@ export class CategoriaService extends BaseService<ICategory> {
       },
       error: (err: any) => {
         this.alertService.displayAlert('error', 'An error occurred adding the categorie', 'center', 'top', ['error-snackbar']);
+        console.error('error', err);
+      }
+    });
+  }
+
+  delete(item: ICategory) {
+    this.del(item.id).subscribe({
+      next: (response: IResponse<ICategory>) => {
+        this.alertService.displayAlert('success', response.message, 'center', 'top', ['success-snackbar']);
+        this.getAll();
+      },
+      error: (err: any) => {
+        this.alertService.displayAlert('error', 'An error occurred adding the team', 'center', 'top', ['error-snackbar']);
         console.error('error', err);
       }
     });

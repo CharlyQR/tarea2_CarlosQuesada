@@ -32,18 +32,6 @@
   }
 
   .btn-editar {
-    align-self: start;
-    background-color: #22c55e;
-    color: white;
-    border: none;
-    border-radius: 0.5rem;
-    padding: 0.4rem 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.2s;
-
-    &:hover {
-      background-color: #16a34a;
-    }
+    margin-bottom: 10px;
   }
 }

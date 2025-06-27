@@ -7,6 +7,8 @@ import { PaginationComponent } from "../../components/pagination/pagination.comp
 import { FormBuilder, Validators } from "@angular/forms";
 import { ModalService } from "../../services/modal.service";
 import { ModalComponent } from "../../components/modal/modal.component";
+import { AuthService } from "../../services/auth.service";
+import { ActivatedRoute } from "@angular/router";
 
 @Component  ({
   selector: "app-categoria",
@@ -33,6 +35,17 @@ export class CategoriaComponent {
     public modalService: ModalService = inject(ModalService);
     @ViewChild('editCategoriaModal') public editCategoriaModal: any;
 
+    public authService: AuthService = inject(AuthService);
+    public route: ActivatedRoute = inject(ActivatedRoute);
+    public areActionsAvailable: boolean = false;
+  
+    ngOnInit(): void {
+    this.authService.getUserAuthorities();
+    this.route.data.subscribe( data => {
+    this.areActionsAvailable =  this.authService.areActionsAvailable(data['authorities'] ? data['authorities'] : []); 
+    });
+    }
+
     constructor() {
         this.categoriaService.getAll();
     }
@@ -55,5 +68,9 @@ export class CategoriaComponent {
         descripcion: categoria.descripcion
       });
       this.modalService.displayModal('lg', this.editCategoriaModal)
+  }
+
+  deleteCategoria(categoria: ICategory) {
+    this.categoriaService.delete(categoria)
   }
 }

@@ -1,11 +1,15 @@
-<app-categoria-form
-    [form]="categoriaForm"
-    (callSaveMethod)="saveCategoria($event)"
-/>
+@if(areActionsAvailable) {
+  <app-categoria-form
+      [form]="categoriaForm"
+      (callSaveMethod)="saveCategoria($event)"
+  />
+}
+
 
 <app-categoria-list
     [categoriaList]="categoriaService.categorias$()"
     (callUpdateModalMethod)="openEditCategoriaModal($event)"
+    (callDeleteMethod)="deleteCategoria($event)"
 />
 
 <app-pagination
