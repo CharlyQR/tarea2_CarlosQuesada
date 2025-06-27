@@ -1,0 +1,10 @@
+<div class="categoria-container">
+    @for (categoria of categoriaList; track categoria) {
+        <div class="categoria-item">
+            <h2> Categoria: {{ categoria.name }}</h2>
+            <h3> Descripción: {{ categoria.description }}</h3>
+        </div>
+    } @empty {
+        <p>No hay categorías disponibles.</p>
+    }
+</div>

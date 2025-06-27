@@ -1,0 +1,19 @@
+.categoria-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+
+    .categoria-item {
+        border-radius: 20px;
+        box-shadow: 9px 10px 19px -4px rgba(0,0,0,0.75);
+        -webkit-box-shadow: 9px 10px 19px -4px rgba(0,0,0,0.75);
+        -moz-box-shadow: 9px 10px 19px -4px rgba(0,0,0,0.75);
+        padding: 20px;
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+    }
+}
