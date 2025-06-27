@@ -1,25 +1,21 @@
-<form [formGroup]="form" class="row mb-4">
-  <div>
-    <h2 class="mb-0 espacioAgregarCategoria">Agregar una categoría:</h2>
-  </div>
+<form [formGroup]="form" class="categoria-form">
+  <h2 class="form-title">Agregar una categoría</h2>
 
-  <div class="mb-2 col-4">
-    <label class="mb-1" for="nombre">Nombre de Categoría: *</label>
-    <input id="nombre" formControlName="nombre" type="text" class="form-control">
+  <div class="form-group">
+    <label for="nombre">Nombre de Categoría: *</label>
+    <input id="nombre" formControlName="nombre" type="text" class="form-control" />
     @if (form.controls['nombre'].invalid && (form.controls['nombre'].dirty || form.controls['nombre'].touched)) {
-      <p class="text-danger my-1">El campo "nombre" es requerido</p>
+      <p class="error-msg">El campo "nombre" es requerido</p>
     }
   </div>
 
-  <div class="mb-2 col-4">
-  <label class="mb-1" for="descripcion">Descripción de la Categoría: *</label>
-  <input id="descripcion" formControlName="descripcion" type="text" class="form-control">
-  @if (form.controls['descripcion'].invalid && (form.controls['descripcion'].dirty || form.controls['descripcion'].touched)) {
-    <p class="text-danger my-1">El campo "descripcion" es requerido</p>
-  }
+  <div class="form-group">
+    <label for="descripcion">Descripción de la Categoría: *</label>
+    <input id="descripcion" formControlName="descripcion" type="text" class="form-control" />
+    @if (form.controls['descripcion'].invalid && (form.controls['descripcion'].dirty || form.controls['descripcion'].touched)) {
+      <p class="error-msg">El campo "descripcion" es requerido</p>
+    }
   </div>
 
-  <div class="col-12">
-    <button (click)="callSave()" [disabled]="form.invalid" class="btn btn-primary" type="button">Save</button>
-  </div>
+  <button (click)="callSave()" [disabled]="form.invalid" class="btn btn-primary" type="button">Guardar</button>
 </form>

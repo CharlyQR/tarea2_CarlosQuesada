@@ -6,6 +6,7 @@ import { CategoriaService } from "../../services/categoria.service";
 import { PaginationComponent } from "../../components/pagination/pagination.component";
 import { FormBuilder, Validators } from "@angular/forms";
 import { ModalService } from "../../services/modal.service";
+import { ModalComponent } from "../../components/modal/modal.component";
 
 @Component  ({
   selector: "app-categoria",
@@ -15,7 +16,8 @@ import { ModalService } from "../../services/modal.service";
   imports: [
     CategoriaFormComponent,
     CategoriaListComponent,
-    PaginationComponent
+    PaginationComponent,
+    ModalComponent
   ]
 })
 export class CategoriaComponent {
@@ -38,5 +40,20 @@ export class CategoriaComponent {
     saveCategoria(item: ICategory) {
       this.categoriaService.save(item);
     }
-    
+
+    updateCategoria(item: ICategory) {
+      this.categoriaService.update(item);
+      this.modalService.closeAll();
+      this.categoriaForm.reset();
+    }
+
+   openEditCategoriaModal(categoria: ICategory) {
+      console.log("openEditCategoriaModal", categoria);
+      this.categoriaForm.patchValue({
+        id: JSON.stringify(categoria.id),
+        nombre: categoria.nombre,
+        descripcion: categoria.descripcion
+      });
+      this.modalService.displayModal('lg', this.editCategoriaModal)
+  }
 }

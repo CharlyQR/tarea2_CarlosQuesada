@@ -47,4 +47,17 @@ export class CategoriaService extends BaseService<ICategory> {
       }
     });
   }
+
+    update(item: ICategory) {
+    this.edit(item.id, item).subscribe({
+      next: (response: IResponse<ICategory>) => {
+        this.alertService.displayAlert('success', response.message, 'center', 'top', ['success-snackbar']);
+        this.getAll();
+      },
+      error: (err: any) => {
+        this.alertService.displayAlert('error', 'An error occurred adding the categorie', 'center', 'top', ['error-snackbar']);
+        console.error('error', err);
+      }
+    });
+  }
 }

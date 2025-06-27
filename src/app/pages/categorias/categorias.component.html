@@ -1,5 +1,3 @@
-<p>Categorias</p>
-
 <app-categoria-form
     [form]="categoriaForm"
     (callSaveMethod)="saveCategoria($event)"
@@ -7,8 +5,22 @@
 
 <app-categoria-list
     [categoriaList]="categoriaService.categorias$()"
+    (callUpdateModalMethod)="openEditCategoriaModal($event)"
 />
 
 <app-pagination
 [service]="categoriaService"
 />
+
+<ng-template #editCategoriaModal>
+  <app-modal
+    [hideFooter]="true"
+  >
+    <div>
+       <app-categoria-form
+        [form]="categoriaForm"
+        (callUpdateMethod)="updateCategoria($event)"
+        />
+    </div>
+  </app-modal>
+</ng-template>
