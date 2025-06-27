@@ -3,5 +3,9 @@
 <app-categoria-form/>
 
 <app-categoria-list
-    [categoriaList]="categoriaList"
+    [categoriaList]="categoriaService.categorias$()"
+/>
+
+<app-pagination
+[service]="categoriaService"
 />
