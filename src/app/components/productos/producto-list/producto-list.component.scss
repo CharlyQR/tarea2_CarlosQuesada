@@ -1,6 +1,6 @@
-.producto-list {
+.productos-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.5rem;
   margin-top: 2rem;
 }
@@ -15,14 +15,11 @@
   justify-content: space-between;
   transition: transform 0.2s ease;
 
-  &:hover {
-    transform: translateY(-2px);
-  }
-
   .producto-titulo {
     font-size: 1.2rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
+    text-align: center;
   }
 
   .producto-descripcion {

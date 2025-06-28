@@ -15,13 +15,12 @@ export class ProductoService extends BaseService<IProduct> {
 
   public search: ISearch = { 
     page: 1,
-    size: 5
+    size: 3
   }
 
   public totalItems: any = [];
   private alertService: AlertService = inject(AlertService);
 
-  //Devuelve todos los datos en la BD de Teams
   getAll() {
     this.findAllWithParams({ page: this.search.page, size: this.search.size})
     .subscribe({

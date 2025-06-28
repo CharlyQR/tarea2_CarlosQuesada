@@ -15,7 +15,7 @@ export class CategoriaService extends BaseService<ICategory> {
 
   public search: ISearch = { 
     page: 1,
-    size: 5
+    size: 3
   }
 
   public totalItems: any = [];

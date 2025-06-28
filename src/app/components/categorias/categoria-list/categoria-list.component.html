@@ -2,6 +2,7 @@
   @for (categoria of categoriaList; track categoria) {
     <div class="categoria-card">
       <h3 class="categoria-titulo">{{ categoria.nombre }}</h3>
+      <p class="categoria-descripcion">ID: {{categoria.id}}</p>
       <p class="categoria-descripcion">{{ categoria.descripcion }}</p>
       @if (areActionsAvailable) {
         <button (click)="callUpdateModalMethod.emit(categoria)" class="btn btn-success btn-editar">Editar</button>
